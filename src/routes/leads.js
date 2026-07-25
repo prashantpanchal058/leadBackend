@@ -61,7 +61,7 @@ router.patch("/:id", async (req, res) => {
         const lead = await Lead.findByIdAndUpdate(
             req.params.id,
             { status },
-            { new: true, runValidators: true }
+            { returnDocument: "after", runValidators: true }
         );
 
         if (!lead) {
